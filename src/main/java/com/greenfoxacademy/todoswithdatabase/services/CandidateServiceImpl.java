@@ -37,4 +37,9 @@ public class CandidateServiceImpl implements CandidateService {
   public void delete(int id) {
     candidateRepository.delete(id);
   }
+
+  @Override
+  public List<Candidate> searchByName(String name) {
+    return candidateRepository.findAllByNameContains(name);
+  }
 }

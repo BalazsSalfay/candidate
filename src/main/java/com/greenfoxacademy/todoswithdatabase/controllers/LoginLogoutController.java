@@ -13,10 +13,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/candidate")
-public class LoginController {
+public class LoginLogoutController {
 
   @Autowired
   UserServiceImpl userService;
+
+  private boolean password;
+
+  public boolean isPassword() {
+    return password;
+  }
+
+  public void setPassword(boolean password) {
+    this.password = password;
+  }
 
   @GetMapping("/login")
   public String showLoginPage(Model model) {
@@ -28,8 +38,14 @@ public class LoginController {
   @PostMapping("/login")
   public String loginUser(@ModelAttribute User user) {
     if (userService.access(user.getUserName(), user.getPassword())){
+      password = true;
       return "redirect:/candidate/list";
     }
     return "intruder";
+  }
+
+  @PostMapping("/logout")
+  public String logoutUser () {
+    return "redirect:/candidate/login";
   }
 }

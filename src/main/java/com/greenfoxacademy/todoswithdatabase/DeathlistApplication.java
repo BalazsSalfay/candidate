@@ -8,22 +8,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DeathlistApplication implements CommandLineRunner {
-
-	@Autowired
-	CandidateRepository candidateRepository;
+public class DeathlistApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DeathlistApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		candidateRepository.save(new Candidate("Ilyn Payne", true, false));
-		candidateRepository.save(new Candidate("Walder Frey", true, true));
-		candidateRepository.save(new Candidate("Cersei", true, false));
-		candidateRepository.save(new Candidate("The Mountain", true, false));
-		candidateRepository.save(new Candidate("Mervyn Trant", true, false));
-		candidateRepository.save(new Candidate("Joffrey", true, true));
-	}
 }

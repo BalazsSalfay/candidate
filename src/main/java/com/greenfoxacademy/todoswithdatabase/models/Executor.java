@@ -1,25 +1,27 @@
 package com.greenfoxacademy.todoswithdatabase.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Candidate {
+public class Executor {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
   private String name;
-  private boolean isUrgent;
-  private boolean isDone;
+  private String ally;
 
-  public Candidate() {
+
+  public Executor() {
+    name = "";
+    ally = "";
   }
 
-  public Candidate(String name, boolean isUrgent, boolean isDone) {
+  public Executor(String name, String ally) {
     this.name = name;
-    this.isUrgent = isUrgent;
-    this.isDone = isDone;
+    this.ally = ally;
   }
 
   public int getId() {
@@ -38,19 +40,12 @@ public class Candidate {
     this.name = name;
   }
 
-  public boolean getIsUrgent() {
-    return isUrgent;
+  public String getAlly() {
+    return ally;
   }
 
-  public void setIsUrgent(boolean urgent) {
-    isUrgent = urgent;
+  public void setAlly(String ally) {
+    this.ally = ally;
   }
 
-  public boolean getIsDone() {
-    return isDone;
-  }
-
-  public void setIsDone(boolean done) {
-    isDone = done;
-  }
 }

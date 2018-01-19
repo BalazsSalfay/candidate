@@ -1,14 +1,18 @@
 package com.greenfoxacademy.todoswithdatabase.controllers;
 
 import com.greenfoxacademy.todoswithdatabase.factories.CandidateFactory;
+import com.greenfoxacademy.todoswithdatabase.factories.ExecutorFactory;
 import com.greenfoxacademy.todoswithdatabase.models.Candidate;
+import com.greenfoxacademy.todoswithdatabase.models.Executor;
 import com.greenfoxacademy.todoswithdatabase.repositories.CandidateRepository;
 import com.greenfoxacademy.todoswithdatabase.services.CandidateService;
+import com.greenfoxacademy.todoswithdatabase.services.ExecutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller

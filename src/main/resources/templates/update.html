@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
         <label for="candidate_name" style="font-family:'OCR A Std'; color: ghostwhite">Name:</label>
-        <input style="width:30%;" class="form-control" id="candidate_name" type="text" th:field="*{name}" />
+        <input style="width:30%;" class="form-control" id="candidate_name" type="text" th:field="${candidate.name}" />
     </div>
     <div class="form-group">
         <label for="isUrgent" style="font-family:'OCR A Std'; color: ghostwhite">Is it urgent?</label>

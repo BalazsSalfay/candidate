@@ -30,7 +30,6 @@ public class LoginLogoutController {
 
   @GetMapping("/login")
   public String showLoginPage(Model model) {
-    password = false;
     User user = new User();
     model.addAttribute("user", user);
     return "login";

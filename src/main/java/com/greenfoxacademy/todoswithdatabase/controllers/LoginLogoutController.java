@@ -34,7 +34,6 @@ public class LoginLogoutController {
 
   @PostMapping("/logout")
   public String logoutUser() {
-    userService.setAccessGranted(false);
     return "redirect:/candidate/login";
   }
 }

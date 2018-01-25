@@ -1,7 +1,6 @@
 package com.greenfoxacademy.todoswithdatabase.controllers;
 
 import com.greenfoxacademy.todoswithdatabase.models.User;
-import com.greenfoxacademy.todoswithdatabase.services.UserService;
 import com.greenfoxacademy.todoswithdatabase.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,16 +17,6 @@ public class LoginLogoutController {
   @Autowired
   UserServiceImpl userService;
 
-  private boolean password;
-
-  public boolean isPassword() {
-    return password;
-  }
-
-  public void setPassword(boolean password) {
-    this.password = password;
-  }
-
   @GetMapping("/login")
   public String showLoginPage(Model model) {
     User user = new User();
@@ -37,16 +26,15 @@ public class LoginLogoutController {
 
   @PostMapping("/login")
   public String loginUser(@ModelAttribute User user) {
-    if (userService.access(user.getUserName(), user.getPassword())){
-      password = true;
+    if (userService.userAccess(user.getUserName(), user.getPassword())){
       return "redirect:/candidate/list";
     }
     return "intruder";
   }
 
   @PostMapping("/logout")
-  public String logoutUser () {
-    password = false;
+  public String logoutUser() {
+    userService.setAccessGranted(false);
     return "redirect:/candidate/login";
   }
 }

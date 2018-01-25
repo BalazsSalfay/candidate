@@ -10,13 +10,21 @@ public class UserServiceImpl implements UserService {
   @Autowired
   User user;
 
-  boolean accessGranted = false;
+  private boolean accessGranted;
+
+  public boolean isAccessGranted() {
+    return accessGranted;
+  }
+
+  public void setAccessGranted(boolean accessGranted) {
+    this.accessGranted = accessGranted;
+  }
 
   @Override
-  public boolean access(String userName, String password) {
+  public boolean userAccess(String userName, String password) {
     if (userName.equals("noone") && password.equals("valarmorghulis")) {
-      accessGranted = true;
+     this.accessGranted = true;
     }
-    return accessGranted;
+    return this.accessGranted;
   }
 }
